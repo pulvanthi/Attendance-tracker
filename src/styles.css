@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap');
+
+/* ---------- Design tokens ---------- */
+:root {
+  --paper: #e9edf1;
+  --surface: #ffffff;
+  --ink: #16202b;
+  --muted: #5d6a78;
+  --rule: #c9d1da;
+  --office: #0e7c66;   /* In-Office / present */
+  --field: #2a5da8;    /* Field + Remote */
+  --late: #b86e00;
+  --absent: #b23a31;
+  --radius: 6px;
+  --font-head: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Public Sans', 'Segoe UI', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 15px/1.5 var(--font-body);
+  font-variant-numeric: tabular-nums; /* keeps times and counters aligned */
+}
+
+:focus-visible { outline: 3px solid var(--field); outline-offset: 2px; }
+
+.muted { display: block; color: var(--muted); font-size: 13px; }
+
+/* ---------- Masthead with the live clock ---------- */
+.masthead {
+  display: flex; flex-wrap: wrap; gap: 16px;
+  align-items: center; justify-content: space-between;
+  padding: 24px clamp(16px, 4vw, 48px);
+  background: var(--ink); color: #fff;
+}
+.masthead h1 { margin: 0; font: 700 clamp(28px, 4vw, 40px)/1.1 var(--font-head); }
+.masthead__date { margin: 4px 0 0; color: #b9c4d0; }
+
+.clock { display: flex; align-items: center; gap: 12px; }
+.clock__time { font: 700 clamp(40px, 7vw, 68px)/1 var(--font-head); letter-spacing: 0.01em; }
+.clock__dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: #35d0a8; animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 50% { opacity: 0.25; } }
+@media (prefers-reduced-motion: reduce) { .clock__dot { animation: none; } }
+
+/* ---------- Layout ---------- */
+main { max-width: 1240px; margin: 0 auto; padding: 24px clamp(16px, 4vw, 48px) 64px; }
+
+.toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.datebar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+/* ---------- Buttons & inputs ---------- */
+.btn {
+  font: 600 14px var(--font-body);
+  padding: 8px 14px; min-height: 38px;
+  border: 1px solid var(--rule); border-radius: var(--radius);
+  background: var(--surface); color: var(--ink); cursor: pointer;
+}
+.btn:hover { border-color: var(--ink); }
+.btn--primary { background: var(--office); border-color: var(--office); color: #fff; }
+.btn--dark { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+input[type='date'], input[type='time'], input[type='text'], .add input, select {
+  font: 400 14px var(--font-body); color: var(--ink);
+  min-height: 38px; padding: 6px 10px;
+  border: 1px solid var(--rule); border-radius: var(--radius); background: var(--surface);
+}
+input:disabled { background: #f2f4f6; color: #9aa5b1; }
+
+/* ---------- Summary strip: one panel, category colour on the left edge ---------- */
+.summary {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius);
+  margin-bottom: 20px;
+}
+.summary__cell { padding: 16px 20px; border-left: 4px solid var(--rule); }
+.summary__cell + .summary__cell { border-top: 0; }
+.summary__cell--office { border-left-color: var(--office); }
+.summary__cell--field  { border-left-color: var(--field); }
+.summary__cell--absent { border-left-color: var(--absent); }
+.summary__cell--total  { border-left-color: var(--ink); }
+.summary__label { margin: 0; font-weight: 600; }
+.summary__value { margin: 2px 0; font: 700 40px/1.1 var(--font-head); }
+.summary__note { margin: 0; color: var(--muted); font-size: 13px; }
+
+/* ---------- Attendance ledger ---------- */
+.table-wrap { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); overflow-x: auto; }
+.ledger { width: 100%; border-collapse: collapse; }
+.ledger th {
+  text-align: left; font-size: 13px; font-weight: 600; color: var(--muted);
+  padding: 12px 14px; border-bottom: 2px solid var(--ink); white-space: nowrap;
+}
+.ledger td { padding: 12px 14px; border-bottom: 1px solid var(--rule); vertical-align: middle; }
+.ledger tbody tr:last-child td { border-bottom: 0; }
+.ledger .empty { text-align: center; color: var(--muted); padding: 32px; }
+.hours { white-space: nowrap; }
+.running { color: var(--office); font-weight: 600; }
+
+/* Status select doubles as a colour-coded marker */
+.status { font-weight: 600; }
+.status--present { color: var(--office); border-color: var(--office); }
+.status--late    { color: var(--late);   border-color: var(--late); }
+.status--absent  { color: var(--absent); border-color: var(--absent); }
+
+/* Segmented location toggle */
+.toggle { display: inline-flex; border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; }
+.toggle button {
+  font: 500 13px var(--font-body); padding: 8px 10px; border: 0; background: var(--surface);
+  color: var(--ink); cursor: pointer; white-space: nowrap;
+}
+.toggle button + button { border-left: 1px solid var(--rule); }
+.toggle button[aria-pressed='true'] { background: var(--ink); color: #fff; }
+
+/* ---------- Add employee ---------- */
+.add { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.add input { flex: 1 1 180px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .summary { grid-template-columns: repeat(2, 1fr); }
+  .summary__cell:nth-child(n + 3) { border-top: 1px solid var(--rule); }
+
+  /* Table rows become stacked cards on tablets and phones */
+  .ledger thead { position: absolute; left: -9999px; }
+  .ledger, .ledger tbody, .ledger tr, .ledger td { display: block; width: 100%; }
+  .ledger tr { padding: 8px 0; border-bottom: 2px solid var(--ink); }
+  .ledger tbody tr:last-child { border-bottom: 0; }
+  .ledger td { display: flex; justify-content: space-between; align-items: center; gap: 12px; border: 0; padding: 8px 14px; }
+  .ledger td::before { content: attr(data-label); color: var(--muted); font-size: 13px; font-weight: 600; }
+  .ledger td[data-label='Employee'] { display: block; }
+  .ledger td[data-label='Employee']::before { content: none; }
+  .toggle { flex-wrap: wrap; }
+}
+
+@media (max-width: 480px) {
+  .summary { grid-template-columns: 1fr; }
+  .summary__cell + .summary__cell { border-top: 1px solid var(--rule); }
+  .toolbar .btn--dark { width: 100%; }
+}
