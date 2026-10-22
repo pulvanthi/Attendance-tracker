@@ -1,0 +1,88 @@
+.attendance-row {
+  transition: background-color var(--transition-fast);
+}
+
+.attendance-row:hover {
+  background-color: var(--bg-surface-hover);
+}
+
+.attendance-row td {
+  padding: 14px 16px;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 14px;
+}
+
+.attendance-row__emp {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.attendance-row__emp-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.attendance-row__emp-name {
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.attendance-row__emp-details {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.attendance-row__time-input {
+  font-family: var(--font-family-mono);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-medium);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  width: 110px;
+  transition: all var(--transition-fast);
+}
+
+.attendance-row__time-input:focus {
+  border-color: var(--brand-primary);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--brand-subtle);
+}
+
+.attendance-row__time-input:disabled {
+  opacity: 0.4;
+  background: var(--bg-secondary);
+  cursor: not-allowed;
+}
+
+.attendance-row__elapsed {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-family-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brand-primary);
+  background: var(--brand-subtle);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.attendance-row__elapsed-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+}
+
+.attendance-row__total-hours {
+  font-family: var(--font-family-mono);
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 14px;
+}

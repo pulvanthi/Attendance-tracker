@@ -1,0 +1,32 @@
+.location-toggle {
+  display: inline-flex;
+  background: var(--bg-secondary);
+  padding: 3px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  gap: 2px;
+}
+
+.location-toggle__btn {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-family-sans);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.location-toggle__btn:hover:not(.location-toggle__btn--active) {
+  color: var(--text-primary);
+}
+
+.location-toggle__btn--active {
+  background: var(--bg-surface);
+  color: var(--brand-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}

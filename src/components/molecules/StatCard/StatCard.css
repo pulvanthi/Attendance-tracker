@@ -1,0 +1,64 @@
+.stat-card {
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-medium);
+}
+
+.stat-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stat-card__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-card__icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.stat-card--primary .stat-card__icon-wrap { background: var(--brand-subtle); color: var(--brand-primary); }
+.stat-card--success .stat-card__icon-wrap { background: var(--status-present-bg); color: var(--status-present); }
+.stat-card--warning .stat-card__icon-wrap { background: var(--status-late-bg); color: var(--status-late); }
+.stat-card--danger .stat-card__icon-wrap { background: var(--status-absent-bg); color: var(--status-absent); }
+.stat-card--info .stat-card__icon-wrap { background: var(--status-remote-bg); color: var(--status-remote); }
+
+.stat-card__value {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text-primary);
+  font-family: var(--font-family-sans);
+}
+
+.stat-card__note {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}

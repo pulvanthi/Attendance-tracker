@@ -1,0 +1,41 @@
+.date-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.date-nav__picker-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.date-nav__picker {
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 12px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  cursor: pointer;
+  min-height: 38px;
+  transition: all var(--transition-fast);
+}
+
+.date-nav__picker:focus {
+  border-color: var(--brand-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--brand-subtle);
+}
+
+.date-nav__today-badge {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--brand-subtle);
+  color: var(--brand-primary);
+}

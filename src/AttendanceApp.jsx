@@ -135,6 +135,7 @@ function AttendanceRow({ person, record, isToday, onPatch, onClockIn, onClockOut
 export default function AttendanceApp() {
   const todayKey = toDateKey();
   const [selectedDate, setSelectedDate] = useState(todayKey);
+  const [theme, setTheme] = useLocalStorage('attendance.theme', 'light');
   const [staff, setStaff] = useLocalStorage('attendance.staff', SEED_STAFF);
   // Shape: { "2026-09-29": { [staffId]: { status, location, clockIn, clockOut } } }
   const [records, setRecords] = useLocalStorage('attendance.records', {});
@@ -143,6 +144,7 @@ export default function AttendanceApp() {
 
   const isToday = selectedDate === todayKey;
   const dayRecords = records[selectedDate] || {};
+  const isDark = theme === 'dark';
 
   /** Merge a partial change into one employee's record for the selected date. */
   const patchRecord = (id, patch) =>
@@ -188,17 +190,29 @@ export default function AttendanceApp() {
   }, [staff, dayRecords, isToday]);
 
   return (
-    <div className="app">
+    <div className={`app theme--${theme}`}>
       <header className="masthead">
         <div>
           <h1>Attendance</h1>
           <p className="masthead__date">{formatLongDate(selectedDate)}{isToday && ' (today)'}</p>
         </div>
-        <LiveClock />
+        <div className="masthead__actions">
+          <button
+            type="button"
+            className="theme-toggle"
+            onClick={() => setTheme(isDark ? 'light' : 'dark')}
+            aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+            aria-pressed={isDark}
+          >
+            <span aria-hidden="true">{isDark ? '☀' : '☾'}</span>
+            {isDark ? 'Light mode' : 'Dark mode'}
+          </button>
+          <LiveClock />
+        </div>
       </header>
 
       <main>
-        <div className="toolbar">
+        <section className="toolbar card card--toolbar" aria-label="Attendance controls">
           <div className="datebar">
             <button className="btn" onClick={() => setSelectedDate(shiftDateKey(selectedDate, -1))} aria-label="Previous day">‹</button>
             <input type="date" value={selectedDate} aria-label="Select date"
@@ -209,11 +223,11 @@ export default function AttendanceApp() {
           <button className="btn btn--dark" onClick={() => exportDayCsv(selectedDate, staff, dayRecords)}>
             Export {selectedDate} as CSV
           </button>
-        </div>
+        </section>
 
         <SummaryStrip summary={summary} isToday={isToday} />
 
-        <div className="table-wrap">
+        <section className="table-wrap card card--ledger" aria-label="Attendance ledger">
           <table className="ledger">
             <thead>
               <tr>
@@ -238,13 +252,19 @@ export default function AttendanceApp() {
               ))}
             </tbody>
           </table>
-        </div>
+        </section>
 
-        <form className="add" onSubmit={addStaff}>
-          <input value={newName} onChange={(e) => setNewName(e.target.value)} placeholder="Employee name" aria-label="Employee name" required />
-          <input value={newDept} onChange={(e) => setNewDept(e.target.value)} placeholder="Department" aria-label="Department" />
-          <button className="btn btn--primary" type="submit">Add employee</button>
-        </form>
+        <section className="add-card card" aria-labelledby="add-employee-title">
+          <div>
+            <h2 id="add-employee-title">Add employee</h2>
+            <p>Include a team member in the attendance roster.</p>
+          </div>
+          <form className="add" onSubmit={addStaff}>
+            <input value={newName} onChange={(e) => setNewName(e.target.value)} placeholder="Employee name" aria-label="Employee name" required />
+            <input value={newDept} onChange={(e) => setNewDept(e.target.value)} placeholder="Department" aria-label="Department" />
+            <button className="btn btn--primary" type="submit">Add employee</button>
+          </form>
+        </section>
       </main>
     </div>
   );

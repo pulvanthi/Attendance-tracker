@@ -1,0 +1,64 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.01em;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+/* Status variants */
+.badge--present {
+  background-color: var(--status-present-bg);
+  color: var(--status-present);
+  border-color: var(--status-present-border);
+}
+
+.badge--late {
+  background-color: var(--status-late-bg);
+  color: var(--status-late);
+  border-color: var(--status-late-border);
+}
+
+.badge--absent {
+  background-color: var(--status-absent-bg);
+  color: var(--status-absent);
+  border-color: var(--status-absent-border);
+}
+
+.badge--remote {
+  background-color: var(--status-remote-bg);
+  color: var(--status-remote);
+  border-color: var(--status-remote-border);
+}
+
+.badge--field-duty,
+.badge--field {
+  background-color: var(--status-field-bg);
+  color: var(--status-field);
+  border-color: var(--status-field-border);
+}
+
+.badge--admin {
+  background: var(--brand-subtle);
+  color: var(--brand-primary);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.badge--neutral {
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  border-color: var(--border-subtle);
+}

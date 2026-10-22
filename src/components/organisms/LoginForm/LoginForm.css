@@ -1,0 +1,66 @@
+.auth-modal-card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+.auth-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-secondary);
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  background: transparent;
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border-bottom: 2px solid transparent;
+}
+
+.auth-tab--active {
+  background: var(--bg-surface);
+  color: var(--brand-primary);
+  border-bottom-color: var(--brand-primary);
+}
+
+.auth-form {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-demo-box {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background: var(--brand-subtle);
+  border: 1px dashed rgba(99, 102, 241, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.auth-demo-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brand-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.auth-demo-buttons {
+  display: flex;
+  gap: 8px;
+}

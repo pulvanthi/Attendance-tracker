@@ -1,0 +1,118 @@
+/* Design System Tokens */
+:root {
+  /* Light Theme */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-surface: #ffffff;
+  --bg-surface-glass: rgba(255, 255, 255, 0.85);
+  --bg-surface-hover: #f8fafc;
+  --bg-elevated: #ffffff;
+
+  --border-subtle: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --border-focus: #6366f1;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+
+  /* Accent & Brand */
+  --brand-primary: #4f46e5;
+  --brand-primary-hover: #4338ca;
+  --brand-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+  --brand-subtle: #eef2ff;
+
+  /* Semantic Status Colors */
+  --status-present: #059669;
+  --status-present-bg: #ecfdf5;
+  --status-present-border: #a7f3d0;
+
+  --status-late: #d97706;
+  --status-late-bg: #fffbeb;
+  --status-late-border: #fde68a;
+
+  --status-absent: #e11d48;
+  --status-absent-bg: #fff1f2;
+  --status-absent-border: #fecdd3;
+
+  --status-remote: #2563eb;
+  --status-remote-bg: #eff6ff;
+  --status-remote-border: #bfdbfe;
+
+  --status-field: #0891b2;
+  --status-field-bg: #ecfeff;
+  --status-field-border: #a5f3fc;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.25);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-family-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'JetBrains Mono', monospace;
+
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme='dark'] {
+  --bg-primary: #090d16;
+  --bg-secondary: #0f172a;
+  --bg-surface: #131c2e;
+  --bg-surface-glass: rgba(19, 28, 46, 0.82);
+  --bg-surface-hover: #1e293b;
+  --bg-elevated: #1a2438;
+
+  --border-subtle: #1e293b;
+  --border-medium: #334155;
+  --border-focus: #818cf8;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-inverse: #090d16;
+
+  /* Accent & Brand */
+  --brand-primary: #6366f1;
+  --brand-primary-hover: #818cf8;
+  --brand-gradient: linear-gradient(135deg, #818cf8 0%, #a78bfa 50%, #f472b6 100%);
+  --brand-subtle: rgba(99, 102, 241, 0.15);
+
+  /* Semantic Status Colors (Dark mode) */
+  --status-present: #34d399;
+  --status-present-bg: rgba(16, 185, 129, 0.15);
+  --status-present-border: rgba(52, 211, 153, 0.3);
+
+  --status-late: #fbbf24;
+  --status-late-bg: rgba(245, 158, 11, 0.15);
+  --status-late-border: rgba(251, 191, 36, 0.3);
+
+  --status-absent: #f87171;
+  --status-absent-bg: rgba(239, 68, 68, 0.15);
+  --status-absent-border: rgba(248, 113, 113, 0.3);
+
+  --status-remote: #60a5fa;
+  --status-remote-bg: rgba(59, 130, 246, 0.15);
+  --status-remote-border: rgba(96, 165, 250, 0.3);
+
+  --status-field: #22d3ee;
+  --status-field-bg: rgba(6, 182, 212, 0.15);
+  --status-field-border: rgba(34, 211, 238, 0.3);
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.35);
+}

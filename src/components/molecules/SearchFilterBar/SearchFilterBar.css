@@ -1,0 +1,30 @@
+.search-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.search-filter-bar__inputs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 260px;
+}
+
+.search-filter-bar__search {
+  max-width: 320px;
+}
+
+.search-filter-bar__dept {
+  min-width: 160px;
+}
+
+.search-filter-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
