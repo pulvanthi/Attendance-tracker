@@ -1,4 +1,6 @@
-const API_BASE = '/api';
+// In development Vite proxies /api to localhost:8000. For a deployed site (e.g. Vercel) set
+// VITE_API_URL to the public backend address, e.g. https://my-backend.onrender.com
+const API_BASE = `${(import.meta.env.VITE_API_URL || '').replace(/\/+$/, '')}/api`;
 const TOKEN_KEY = 'trackpulse_token';
 const USER_KEY = 'trackpulse_user';
 
